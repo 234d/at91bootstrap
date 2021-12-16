@@ -49,6 +49,7 @@
 const struct spi_nor_info spi_nor_ids[] = {
 	/* Macronix */
 	{ MX25("mx25l25635f", 0xc22019,  512), },
+	{ MX66("mx66l51235f", 0xc2201a, 1024), },
 	{ MX66("mx66lm1g45g", 0xc2853b, 2048), },
 
 	/* Micron */
