@@ -30,6 +30,14 @@
 	.page_size = 256,			\
 	.flags = SNOR_HAS_FSR | SNOR_SECT_4K | SNOR_NO_4BAIS
 
+#define MT25Q(_name, _jedec_id, _ext_id, _n_sectors)	\
+	.name = _name,					\
+	ID5(_jedec_id, _ext_id),			\
+	.sector_size = 65536U,				\
+	.n_sectors = (_n_sectors),			\
+	.page_size = 256,				\
+	.flags = SNOR_HAS_FSR | SNOR_SECT_4K
+
 #define MX25(_name, _jedec_id, _n_sectors)      \
         .name = _name,                          \
         ID5(_jedec_id, 0),                      \
@@ -61,6 +69,8 @@ const struct spi_nor_info spi_nor_ids[] = {
 	{ N25Q("n25q256ax1", 0x20bb19,  512), },
 	{ N25Q("n25q256ax3", 0x20ba19,  512), },
 	{ N25Q("n25q512ax1", 0x20bb20, 1024), },
+	{ MT25Q("mt25ql512a", 0x20ba20, 0x1040, 1024), },
+	{ MT25Q("mt25ql512a", 0x20ba20, 0x1044, 1024), },
 	{ N25Q("n25q512ax3", 0x20ba20, 1024), },
 	{ N25Q("n25q00ax1",  0x20bb21, 2048), },
 	{ N25Q("n25q00ax3",  0x20ba21, 2048), },
